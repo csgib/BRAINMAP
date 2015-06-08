@@ -1,1 +1,1 @@
-BRAINMAP is a tool for crating network scheme.... Hope you like it
+BRAINMAP is a tool for creating network schemes.... Enjoy
