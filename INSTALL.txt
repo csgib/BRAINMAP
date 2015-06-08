@@ -1,0 +1,45 @@
+Placez vous dans le répertoire de votre serveur web, par exemple /var/www/html/
+
+cd /var/www/html
+
+et copiez y l'archive de Brainmap que vous aves téléchargé, puis décompressez là :
+
+Assurez vous que votre serveur web dispose bien des droits pour lire ce dossier.
+Donnez les droits en écriture au serveur web dans Dumps / Files / Temp
+
+Enduite rendez vous dans le répertoire BRAINMAP
+
+cd brainmap
+
+Nous allons maintenant créer la base de données
+
+mysql -u root -p < bdd.sql
+
+Entrez alors le mot de passe root de mysql et la base va se créer. Si votre utilisateur root n'a pas de mot de passe vous pouvez taper directement : 
+
+mysql -u root < bdd.sql
+
+Enduite rendez vous dans le répertoire Includes
+
+cd Includes
+
+Et éditez le fichier identification_mysql.php
+
+<?php
+
+define ('HOST','xxx.xxx.xxx.xxx');    <--- Adresse IP de votre serveur MYSQL ou 127.0.0.1
+define ('PORT','3306');               <--- Port de votre serveur MYSQL (par défaut 3306)
+define ('UBASE','root');              <--- Utilisateur Mysql
+define ('PBASE','');                  <--- Mot de passe utilisateur Mysql
+define ('CATALOG','BRAINMAP');        <--- Nom de la base Mysql de l'application a ajuster uniquement si vous avez importer la base sous un autre nom
+
+?>
+
+Dans la situation présentée l'utilisateur MYSQL retenu est root et ne possède pas de mot de passe (ce qui n'est pas bien ;-) ) et la base que nous utiliserons s'appelle BRAINMAP (ce qui est normal si vous avez suivi la procédure depuis le début).
+Ajustez les paramètres UBASE (utilisateur mysql) et PBASE (mot de passe de l'utilisateur mysql).
+
+Voila il ne vous reste plus qu'a vous rendre dans votre navigateur web à l'adresse : http://127.0.0.1/brainmap
+
+Bons tests
+
+Stéphane

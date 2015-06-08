@@ -1,0 +1,106 @@
+#gritter-notice-wrapper {
+	position:fixed;
+	top: 50%;
+	left: 50%;
+	margin-left:	-140px;
+	margin-top:	-140px;
+	width: 280px;
+	z-index:9999;
+}
+#gritter-notice-wrapper.top-left {
+    left: 20px;
+    right: auto;
+}
+#gritter-notice-wrapper.bottom-right {
+    top: auto;
+    left: auto;
+    bottom: 20px;
+    right: 20px;
+}
+#gritter-notice-wrapper.bottom-left {
+    top: auto;
+    right: auto;
+    bottom: 20px;
+    left: 20px;
+}
+.gritter-item-wrapper {
+	
+	position:relative;
+	margin:0 0 10px 0;
+	/*background: -moz-linear-gradient(top, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.8) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.8)));*/
+
+	background-color: rgba(0,0,0,0.8);
+
+	border-radius : 5px;
+
+	-moz-box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+	-webkit-box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+	box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+}
+.gritter-top {
+	/*background:url(../Images/gritter.png) no-repeat left -30px;*/
+	height:10px;
+}
+.hover .gritter-top {
+	background-position:right -30px;
+}
+.gritter-bottom {
+	/*background:url(../Images/gritter.png) no-repeat left bottom;*/
+	height:8px;
+	margin:0;
+}
+.hover .gritter-bottom {
+	background-position: bottom right;
+}
+.gritter-item {
+	display:block;
+	/*background:url(../Images/gritter.png) no-repeat left -40px;*/
+	color:#ffffff;
+	padding:2px 11px 8px 11px;
+	font-size: 12px;
+	font-family: Droid;
+	font-weight: normal;
+	text-align: center;
+	text-shadow: 0px 0px 4px rgba(0,0,0,1.0);
+}
+.hover .gritter-item {
+	background-position:right -40px;
+}
+.gritter-item p {
+	padding:0;
+	margin:0;
+	word-wrap:break-word;
+}
+.gritter-close {
+	display:none;
+	position:absolute;
+	top:5px;
+	left:3px;
+	/*background:url(../Images/gritter.png) no-repeat left top;*/
+	cursor:pointer;
+	width:30px;
+	height:30px;
+}
+.gritter-title {
+	font-family: Droid;
+	font-size:14px;
+	font-weight:bold;
+	text-shadow: 0px 0px 4px rgba(0,0,0,1.0);
+	padding:0 0 7px 0;
+	display:block;
+	/*text-shadow:1px 1px 0 #000;*/ /* Not supported by IE :( */
+}
+.gritter-image {
+	width:48px;
+	height:48px;
+	padding-right: 10px;
+	float:left;
+	clear:both;
+}
+.gritter-with-image,
+.gritter-without-image {
+	padding:0;
+}
+.gritter-with-image {
+}
