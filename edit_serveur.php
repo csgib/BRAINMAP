@@ -6,35 +6,43 @@
 	<table>	
 		<tr><td class="rubrique">Nom du serveur</td><td class="fields"><input type="text" name="FRM_SERVEUR_NAME" id="FRM_SERVEUR_NAME" placeholder="Nom du serveur" class="requis wid_1"></td></tr>
 		<tr><td class="rubrique">Marque du serveur</td><td class="fields"><select name='FRM_SERVEUR_MARQUE' id='FRM_SERVEUR_MARQUE' class="wid_1">
-			<option value='AEG'>AEG</option>
-			<option value='ASUS'>ASUS</option>
-			<option value='DELL'>DELL</option>
-			<option value='FUJITSU'>FUJITSU</option>
-			<option value='HP'>HP</option>
-			<option value='IBM'>IBM</option>
-			<option value='MSI'>MSI</option>
-			<option value='NEC'>NEC</option>
-			<option value='OMEGA'>OMEGA</option>
-			<option value='SIEMENS'>SIEMENS</option>
-			<option value='TOSHIBA'>TOSHIBA</option>
+		
+		<?php
+		
+			require "Class/class_constructeurs.php";
+			$hdl_constructeur = new CONSTRUCTEUR();
+			$hdl_constructeur->_type_object = "S";
+			
+			$result_cosntructeur = json_decode($hdl_constructeur->get_constructeurs());
+			$wl_idx_con = 0;
+			
+			while ($wl_idx_con < count($result_cosntructeur))
+			{
+				echo "<option value='" . $result_cosntructeur[$wl_idx_con]->CONSTRUCTEURS_NAME . "'>" . $result_cosntructeur[$wl_idx_con]->CONSTRUCTEURS_NAME . "</option>";
+				$wl_idx_con++;
+			}
+		
+		?>
 		</select></td></tr>
 		<tr><td class="rubrique">Modèle du serveur</td><td class="fields"><input type="text" id="FRM_SERVEUR_MODELE" name="FRM_SERVEUR_MODELE" placeholder="Modèle du serveur" class="wid_1"></td></tr>
 		<tr><td class="rubrique">Serveur ondulée</td><td class="fields"><input type="checkbox" id="FRM_SERVEUR_ONDULEE" name="FRM_SERVEUR_ONDULEE" class="chk_style"></td></tr>
 		<tr><td class="rubrique">Firewall</td><td class="fields"><input type="checkbox" id="FRM_SERVEUR_FIREWALL" name="FRM_SERVEUR_FIREWALL" class="chk_style"></td></tr>				
 		<tr><td class="rubrique">Système d'exploitation</td><td class="fields"><select name='FRM_SERVEUR_OS' id='FRM_SERVEUR_OS' class="wid_1">
-			<option value='AIX'>AIX</option>
-			<option value='DEBIAN'>DEBIAN</option>
-			<option value='EOLE'>EOLE</option>
-			<option value='GENTOO'>GENTOO</option>
-			<option value='MANDRIVA'>MANDRIVA</option>
-			<option value='OPENSUSE'>OPENSUSE</option>
-			<option value='OS400'>OS400</option>
-			<option value='REDHAT'>REDHAT</option>
-			<option value='UBUNTU'>UBUNTU</option>
-			<option value='MVS'>MVS</option>
-			<option value='WNT'>WINDOWS NT</option>
-			<option value='W2000'>WINDOWS 2000</option>
-			<option value='W2008'>WINDOWS 2008</option>
+		<?php
+		
+			require "Class/class_os.php";
+			$hdl_os = new OS();
+			
+			$result_os = json_decode($hdl_os->get_os());
+			$wl_idx_os = 0;
+			
+			while ($wl_idx_os < count($result_os))
+			{
+				echo "<option value='" . $result_os[$wl_idx_os]->OS_NAME . "'>" . $result_os[$wl_idx_os]->OS_NAME . "</option>";
+				$wl_idx_os++;
+			}
+		
+		?>		
 		</select></td></tr>
 		<tr><td class="rubrique">Version du système d'exploitation</td><td class="fields"><input type="text" id="FRM_SERVEUR_RELEASE" name="FRM_SERVEUR_RELEASE" placeholder="Version système d'exploitation" class="wid_1"></td></tr>
 		

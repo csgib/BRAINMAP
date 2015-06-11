@@ -5,23 +5,22 @@
 <form method="post" action="insert_switch.php" id="FORMULAIRE">
 	<table>
 		<tr><td class="rubrique">Constructeur</td><td class="fields"><select class="wid_1 requis" name='FRM_SWITCH_MARQUE' id='FRM_SWITCH_MARQUE'>";
-			<option value='APC'>APC</option>			
-			<option value='CISCO'>CISCO</option>
-			<option value='DELL'>DELL</option>
-			<option value='DLINK'>DLINK</option>
-			<option value='EXTREME'>EXTREME</option>
-			<option value='GEUTEBRUCK'>GEUTEBRUCK</option>
-			<option value='HP'>HP</option>
-			<option value='IBM'>IBM</option>
-			<option value='JUNIPER'>JUNIPER</option>
-			<option value='LANTRONIX'>LANTRONIX</option>
-			<option value='NETGEAR'>NETGEAR</option>
-			<option value='NORTEL'>NORTEL</option>
-			<option value='ORACLE'>ORACLE</option>
-			<option value='SIEMENS'>SIEMENS</option>
-			<option value='TRENDNET'>TRENDNET</option>
-			<option value='TPLINK'>TPLINK</option>			
-			<option value='WLINX'>WLINX</option>
+		<?php
+		
+			require "Class/class_constructeurs.php";
+			$hdl_constructeur = new CONSTRUCTEUR();
+			$hdl_constructeur->_type_object = "N";
+			
+			$result_cosntructeur = json_decode($hdl_constructeur->get_constructeurs());
+			$wl_idx_con = 0;
+			
+			while ($wl_idx_con < count($result_cosntructeur))
+			{
+				echo "<option value='" . $result_cosntructeur[$wl_idx_con]->CONSTRUCTEURS_NAME . "'>" . $result_cosntructeur[$wl_idx_con]->CONSTRUCTEURS_NAME . "</option>";
+				$wl_idx_con++;
+			}
+		
+		?>
 		</select></td></tr>
 		<tr><td class="rubrique">modèle du switch</td><td class="fields"><input class="wid_1" type="text" id="FRM_SWITCH_COMMENTAIRES" name="FRM_SWITCH_COMMENTAIRES" placeholder="Modèle du switch" maxlength="65" size="40" class="requis"></td></tr>
 		<tr><td class="rubrique">Adresse IP du switch</td><td class="fields"><input class="wid_2 TITLE_CENTER_IT" type="text" name="FRM_SWITCH_IP" id="FRM_SWITCH_IP" placeholder="Adresse IP" maxlength="15" size="19" class="ip"><input type="hidden" name="FRM_SWITCH_OLD_IP" id="FRM_SWITCH_OLD_IP" maxlength="15" size="19"></td></tr>
