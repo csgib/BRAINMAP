@@ -1,0 +1,538 @@
+CREATE DATABASE  IF NOT EXISTS `BRAINMAP` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `BRAINMAP`;
+-- MySQL dump 10.13  Distrib 5.5.41, for debian-linux-gnu (x86_64)
+--
+-- Host: localhost    Database: BRAINMAP
+-- ------------------------------------------------------
+-- Server version	5.5.41-0ubuntu0.14.04.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `ANTENNES`
+--
+
+DROP TABLE IF EXISTS `ANTENNES`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ANTENNES` (
+  `ANTENNES_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ANTENNES_SITE` varchar(45) DEFAULT NULL,
+  `ANTENNES_NOM` varchar(45) DEFAULT NULL,
+  `ANTENNES_IP` varchar(45) DEFAULT NULL,
+  `ANTENNES_POS_X` int(11) DEFAULT NULL,
+  `ANTENNES_POS_Y` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ANTENNES_ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ANTENNES`
+--
+
+LOCK TABLES `ANTENNES` WRITE;
+/*!40000 ALTER TABLE `ANTENNES` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ANTENNES` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `BAIES`
+--
+
+DROP TABLE IF EXISTS `BAIES`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `BAIES` (
+  `BAIES_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `BAIES_SITE` varchar(25) NOT NULL,
+  `BAIES_POS_X` int(11) NOT NULL,
+  `BAIES_POS_Y` int(11) NOT NULL,
+  `BAIES_WIDTH` int(11) NOT NULL,
+  `BAIES_HEIGHT` int(11) NOT NULL,
+  `BAIES_COMMENTAIRES` varchar(65) DEFAULT NULL,
+  `BAIES_ONDULEE` int(11) NOT NULL,
+  `BAIES_DATAS` longtext,
+  PRIMARY KEY (`BAIES_ID`,`BAIES_SITE`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `BAIES`
+--
+
+LOCK TABLES `BAIES` WRITE;
+/*!40000 ALTER TABLE `BAIES` DISABLE KEYS */;
+/*!40000 ALTER TABLE `BAIES` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `CAMERAS`
+--
+
+DROP TABLE IF EXISTS `CAMERAS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `CAMERAS` (
+  `CAMERAS_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `CAMERAS_SITE` varchar(45) DEFAULT NULL,
+  `CAMERAS_NOM` varchar(45) DEFAULT NULL,
+  `CAMERAS_IP` varchar(45) DEFAULT NULL,
+  `CAMERAS_DESCRIPTIF` longtext,
+  `CAMERAS_POS_X` int(11) DEFAULT NULL,
+  `CAMERAS_POS_Y` int(11) DEFAULT NULL,
+  PRIMARY KEY (`CAMERAS_ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `CAMERAS`
+--
+
+LOCK TABLES `CAMERAS` WRITE;
+/*!40000 ALTER TABLE `CAMERAS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `CAMERAS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `COMPUTERS`
+--
+
+DROP TABLE IF EXISTS `COMPUTERS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `COMPUTERS` (
+  `COMPUTERS_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `COMPUTERS_SITE` varchar(45) DEFAULT NULL,
+  `COMPUTERS_HOSTNAME` varchar(45) DEFAULT NULL,
+  `COMPUTERS_IP` varchar(45) DEFAULT NULL,
+  `COMPUTERS_OS` varchar(1) DEFAULT NULL,
+  `COMPUTERS_RELEASE` varchar(45) DEFAULT NULL,
+  `COMPUTERS_VNC_PORT` varchar(6) DEFAULT NULL,
+  PRIMARY KEY (`COMPUTERS_ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `COMPUTERS`
+--
+
+LOCK TABLES `COMPUTERS` WRITE;
+/*!40000 ALTER TABLE `COMPUTERS` DISABLE KEYS */;
+INSERT INTO `COMPUTERS` VALUES (1,'Test','BIG_CHIEF','192.168.1.1','L','Fedora 21','5800'),(2,'Test','Voyou','192.168.136.25','W','3.1','4200'),(3,'Test','Secrétaire','192.168.136.26','W','3.1','');
+/*!40000 ALTER TABLE `COMPUTERS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `CONSTRUCTEURS`
+--
+
+DROP TABLE IF EXISTS `CONSTRUCTEURS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `CONSTRUCTEURS` (
+  `CONSTRUCTEURS_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `CONSTRUCTEURS_NAME` varchar(45) DEFAULT NULL,
+  `CONSTRUCTEURS_TYPE_OBJECT` varchar(1) DEFAULT NULL,
+  PRIMARY KEY (`CONSTRUCTEURS_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `CONSTRUCTEURS`
+--
+
+LOCK TABLES `CONSTRUCTEURS` WRITE;
+/*!40000 ALTER TABLE `CONSTRUCTEURS` DISABLE KEYS */;
+INSERT INTO `CONSTRUCTEURS` VALUES (1,'AEG','S'),(2,'ASUS','S'),(3,'DELL','S'),(4,'FUJITSU','S'),(5,'HP','S'),(6,'IBM','S'),(7,'MSI','S'),(8,'NEC','S'),(9,'OMEGA','S'),(10,'SIEMENS','S'),(11,'TOSHIBA','S'),(12,'APC','N'),(13,'CISCO','N'),(14,'DELL','N'),(15,'DLINK','N'),(16,'EXTREME','N'),(17,'GEUTEBRUCK','N'),(18,'HP','N'),(19,'IBM','N'),(20,'JUNIPER','N'),(21,'LANTRONIX','N'),(22,'NETGEAR','N'),(23,'NORTEL','N'),(24,'ORACLE','N'),(25,'SIEMENS','N'),(26,'TRENDNET','N'),(27,'TPLINK','N'),(28,'WLINX','N');
+/*!40000 ALTER TABLE `CONSTRUCTEURS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `CONTACTS`
+--
+
+DROP TABLE IF EXISTS `CONTACTS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `CONTACTS` (
+  `CONTACTS_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `CONTACTS_SITE` varchar(45) DEFAULT NULL,
+  `CONTACTS_NOM` varchar(65) DEFAULT NULL,
+  `CONTACTS_TELEPHONE` varchar(20) DEFAULT NULL,
+  `CONTACTS_FONCTION` varchar(60) DEFAULT NULL,
+  PRIMARY KEY (`CONTACTS_ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=60 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `CONTACTS`
+--
+
+LOCK TABLES `CONTACTS` WRITE;
+/*!40000 ALTER TABLE `CONTACTS` DISABLE KEYS */;
+INSERT INTO `CONTACTS` VALUES (58,'Test','Gibault Stéphane','0254xxxxxx','Maître de l\'univers'),(59,'Test','Mr Tom Sawyer','0254xxxxxx','Architecte');
+/*!40000 ALTER TABLE `CONTACTS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `LIENS`
+--
+
+DROP TABLE IF EXISTS `LIENS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `LIENS` (
+  `LIENS_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `LIENS_SITE` varchar(45) DEFAULT NULL,
+  `LIENS_SRC_ID` varchar(45) DEFAULT NULL,
+  `LIENS_SRC_PORT` varchar(45) DEFAULT NULL,
+  `LIENS_DST_ID` varchar(45) DEFAULT NULL,
+  `LIENS_DST_PORT` varchar(45) DEFAULT NULL,
+  `LIENS_TYPE` int(11) DEFAULT NULL,
+  `LIENS_INNER` int(11) DEFAULT NULL,
+  PRIMARY KEY (`LIENS_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `LIENS`
+--
+
+LOCK TABLES `LIENS` WRITE;
+/*!40000 ALTER TABLE `LIENS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `LIENS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `NAS`
+--
+
+DROP TABLE IF EXISTS `NAS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `NAS` (
+  `NAS_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NAS_SITE` varchar(45) DEFAULT NULL,
+  `NAS_NAME` varchar(45) DEFAULT NULL,
+  `NAS_POS_X` int(11) DEFAULT NULL,
+  `NAS_POS_Y` int(11) DEFAULT NULL,
+  `NAS_IP` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`NAS_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `NAS`
+--
+
+LOCK TABLES `NAS` WRITE;
+/*!40000 ALTER TABLE `NAS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `NAS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `OS`
+--
+
+DROP TABLE IF EXISTS `OS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `OS` (
+  `OS_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `OS_NAME` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`OS_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `OS`
+--
+
+LOCK TABLES `OS` WRITE;
+/*!40000 ALTER TABLE `OS` DISABLE KEYS */;
+INSERT INTO `OS` VALUES (1,'AIX'),(2,'DEBIAN'),(3,'EOLE'),(4,'GENTOO'),(5,'MANDRIVA'),(6,'OPENSUSE'),(7,'OS400'),(8,'REDHAT'),(9,'UBUNTU'),(10,'MVS'),(11,'WINDOWS NT'),(12,'WINDOWS 2000'),(13,'WINDOWS 2013'),(14,'FEDORA'),(15,'ARCH LINUX'),(16,'WINDOWS XP');
+/*!40000 ALTER TABLE `OS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `PARAMS`
+--
+
+DROP TABLE IF EXISTS `PARAMS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `PARAMS` (
+  `PARAMS_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `PARAMS_GLPI_IP` varchar(50) DEFAULT NULL,
+  `PARAMS_GLPI_URL` varchar(255) DEFAULT NULL,
+  `PARAMS_GLPI_USER` varchar(45) DEFAULT NULL,
+  `PARAMS_GLPI_PASS` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`PARAMS_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `PARAMS`
+--
+
+LOCK TABLES `PARAMS` WRITE;
+/*!40000 ALTER TABLE `PARAMS` DISABLE KEYS */;
+INSERT INTO `PARAMS` VALUES (1,'192.168.136.253','glpi/plugins/webservices/','glpi','glpi');
+/*!40000 ALTER TABLE `PARAMS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ROUTEURS`
+--
+
+DROP TABLE IF EXISTS `ROUTEURS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ROUTEURS` (
+  `ROUTEURS_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ROUTEURS_SITE` varchar(45) DEFAULT NULL,
+  `ROUTEURS_NAME` varchar(45) DEFAULT NULL,
+  `ROUTEURS_POS_X` int(11) DEFAULT NULL,
+  `ROUTEURS_POS_Y` int(11) DEFAULT NULL,
+  `ROUTEURS_IP` varchar(45) DEFAULT NULL,
+  `ROUTEURS_WIFI` int(11) NOT NULL,
+  `ROUTEURS_IP_PUBLIQUE` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`ROUTEURS_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ROUTEURS`
+--
+
+LOCK TABLES `ROUTEURS` WRITE;
+/*!40000 ALTER TABLE `ROUTEURS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ROUTEURS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `SERVEURS`
+--
+
+DROP TABLE IF EXISTS `SERVEURS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `SERVEURS` (
+  `SERVEURS_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `SERVEURS_SITE` varchar(25) NOT NULL,
+  `SERVEURS_NAME` varchar(45) DEFAULT NULL,
+  `SERVEURS_POS_X` int(11) DEFAULT NULL,
+  `SERVEURS_POS_Y` int(11) DEFAULT NULL,
+  `SERVEURS_MARQUE` varchar(45) DEFAULT NULL,
+  `SERVEURS_MODELE` varchar(45) DEFAULT NULL,
+  `SERVEURS_LAN_1_ON` int(11) DEFAULT NULL,
+  `SERVEURS_LAN_1_TYPE` int(11) DEFAULT NULL,
+  `SERVEURS_LAN_1_IP` varchar(45) DEFAULT NULL,
+  `SERVEURS_LAN_2_ON` int(11) DEFAULT NULL,
+  `SERVEURS_LAN_2_TYPE` int(11) DEFAULT NULL,
+  `SERVEURS_LAN_2_IP` varchar(45) DEFAULT NULL,
+  `SERVEURS_LAN_3_ON` int(11) DEFAULT NULL,
+  `SERVEURS_LAN_3_TYPE` int(11) DEFAULT NULL,
+  `SERVEURS_LAN_3_IP` varchar(45) DEFAULT NULL,
+  `SERVEURS_LAN_4_ON` int(11) DEFAULT NULL,
+  `SERVEURS_LAN_4_TYPE` int(11) DEFAULT NULL,
+  `SERVEURS_LAN_4_IP` varchar(45) DEFAULT NULL,
+  `SERVEURS_LAN_5_ON` int(11) DEFAULT NULL,
+  `SERVEURS_LAN_5_TYPE` int(11) DEFAULT NULL,
+  `SERVEURS_LAN_5_IP` varchar(45) DEFAULT NULL,
+  `SERVEURS_LAN_6_ON` int(11) DEFAULT NULL,
+  `SERVEURS_LAN_6_TYPE` int(11) DEFAULT NULL,
+  `SERVEURS_LAN_6_IP` varchar(45) DEFAULT NULL,
+  `SERVEURS_WEB_INTERFACE` tinyint(4) DEFAULT NULL,
+  `SERVEURS_WEB_PORT` varchar(6) DEFAULT NULL,
+  `SERVEURS_HTTPS` tinyint(4) DEFAULT NULL,
+  `SERVEURS_WEB_CARD` tinyint(4) DEFAULT NULL,
+  `SERVEURS_OS` varchar(45) DEFAULT NULL,
+  `SERVEURS_RELEASE` varchar(45) DEFAULT NULL,
+  `SERVEURS_ONDULEE` varchar(1) DEFAULT NULL,
+  `SERVEURS_FIREWALL` varchar(1) DEFAULT NULL,
+  PRIMARY KEY (`SERVEURS_ID`,`SERVEURS_SITE`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SERVEURS`
+--
+
+LOCK TABLES `SERVEURS` WRITE;
+/*!40000 ALTER TABLE `SERVEURS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `SERVEURS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `SITES`
+--
+
+DROP TABLE IF EXISTS `SITES`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `SITES` (
+  `SITES_AUTO_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `SITES_ID` varchar(25) DEFAULT NULL,
+  `SITES_DESCRIPTION` varchar(45) DEFAULT NULL,
+  `SITES_COLOR_1` varchar(7) DEFAULT NULL,
+  `SITES_COLOR_2` varchar(7) DEFAULT NULL,
+  `SITES_COLOR_3` varchar(7) DEFAULT NULL,
+  `SITES_COLOR_4` varchar(7) DEFAULT NULL,
+  `SITES_ADRESSE` varchar(45) DEFAULT NULL,
+  `SITES_POSTAL` varchar(8) DEFAULT NULL,
+  `SITES_VILLE` varchar(45) DEFAULT NULL,
+  `SITES_DOCUMENTS` longtext,
+  `SITES_LAT` varchar(20) DEFAULT NULL,
+  `SITES_LNG` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`SITES_AUTO_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SITES`
+--
+
+LOCK TABLES `SITES` WRITE;
+/*!40000 ALTER TABLE `SITES` DISABLE KEYS */;
+/*!40000 ALTER TABLE `SITES` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `SWITCHS`
+--
+
+DROP TABLE IF EXISTS `SWITCHS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `SWITCHS` (
+  `SWITCHS_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `SWITCHS_BAIE_ID` int(11) NOT NULL,
+  `SWITCHS_SITE` varchar(25) NOT NULL,
+  `SWITCHS_POS_Y` int(11) NOT NULL,
+  `SWITCHS_IP` varchar(45) NOT NULL,
+  `SWITCHS_MARQUE` varchar(45) NOT NULL,
+  `SWITCHS_DESCRIPTION` varchar(65) NOT NULL,
+  `SWITCHS_PORTS_VLAN` varchar(255) NOT NULL,
+  `SWITCHS_PORTS_CONNECT` varchar(255) NOT NULL,
+  `SWITCHS_WEB_INTERFACE` tinyint(4) NOT NULL,
+  `SWITCHS_WEB_PORT` varchar(6) DEFAULT NULL,
+  `SWITCHS_FIBER_PORTS` int(11) DEFAULT NULL,
+  `SWITCHS_FIBER_CONNECT` varchar(45) DEFAULT NULL,
+  `SWITCHS_HTTPS` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`SWITCHS_ID`,`SWITCHS_BAIE_ID`,`SWITCHS_SITE`,`SWITCHS_IP`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SWITCHS`
+--
+
+LOCK TABLES `SWITCHS` WRITE;
+/*!40000 ALTER TABLE `SWITCHS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `SWITCHS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `TEXTES`
+--
+
+DROP TABLE IF EXISTS `TEXTES`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `TEXTES` (
+  `TEXTES_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `TEXTES_SITE` varchar(45) DEFAULT NULL,
+  `TEXTES_TEXT` longtext,
+  `TEXTES_POS_X` int(11) DEFAULT NULL,
+  `TEXTES_POS_Y` int(11) DEFAULT NULL,
+  `TEXTES_WIDTH` int(11) DEFAULT NULL,
+  `TEXTES_HEIGHT` int(11) DEFAULT NULL,
+  PRIMARY KEY (`TEXTES_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `TEXTES`
+--
+
+LOCK TABLES `TEXTES` WRITE;
+/*!40000 ALTER TABLE `TEXTES` DISABLE KEYS */;
+/*!40000 ALTER TABLE `TEXTES` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `TRANSCEIVERS`
+--
+
+DROP TABLE IF EXISTS `TRANSCEIVERS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `TRANSCEIVERS` (
+  `TRANSCEIVERS_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `TRANSCEIVERS_SITE` varchar(45) DEFAULT NULL,
+  `TRANSCEIVERS_LIBELLE` varchar(45) DEFAULT NULL,
+  `TRANSCEIVERS_CONSTRUCTEUR` varchar(45) DEFAULT NULL,
+  `TRANSCEIVERS_POS_X` int(11) DEFAULT NULL,
+  `TRANSCEIVERS_POS_Y` int(11) DEFAULT NULL,
+  PRIMARY KEY (`TRANSCEIVERS_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `TRANSCEIVERS`
+--
+
+LOCK TABLES `TRANSCEIVERS` WRITE;
+/*!40000 ALTER TABLE `TRANSCEIVERS` DISABLE KEYS */;
+/*!40000 ALTER TABLE `TRANSCEIVERS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ZONES`
+--
+
+DROP TABLE IF EXISTS `ZONES`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ZONES` (
+  `ZONES_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ZONES_SITE` varchar(45) DEFAULT NULL,
+  `ZONES_POS_X` int(11) DEFAULT NULL,
+  `ZONES_POS_Y` int(11) DEFAULT NULL,
+  `ZONES_WIDTH` int(11) DEFAULT NULL,
+  `ZONES_HEIGHT` int(11) DEFAULT NULL,
+  `ZONES_NOM` varchar(80) DEFAULT NULL,
+  `ZONES_COLOR` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`ZONES_ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=102 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ZONES`
+--
+
+LOCK TABLES `ZONES` WRITE;
+/*!40000 ALTER TABLE `ZONES` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ZONES` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2015-06-11  9:30:05
