@@ -142,5 +142,24 @@
 			$max_y = $result[0]->Y;
 		}
 		
+		$result = json_decode($hdl_switche->get_maxpos_switch());
+		
+		$wl_idx_sw = 0;
+		while ( $wl_idx_sw < count($result) )
+		{
+			$wl_pos = explode(";",$result[$wl_idx_sw]->SWITCHS_IP);
+			
+			if ( $wl_pos[0] > $max_x )
+			{
+				$max_x = $wl_pos[0];
+			}
+			if ( $wl_pos[1] > $max_y )
+			{
+				$max_y = $wl_pos[1];
+			}	
+			
+			$wl_idx_sw++;
+		}	
+		
 		echo $max_x . ";" . $max_y;
 	?>

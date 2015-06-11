@@ -189,5 +189,14 @@
 					where SWITCHS_ID=" . $this->_id );
 			return $result;		
 		}
+		
+		public function get_maxpos_switch()
+		{		
+			$record=$this->connexion->query("SELECT * FROM SWITCHS WHERE 
+				SWITCHS_SITE='" . $this->_site . "' AND SWITCHS_BAIE_ID = 0");
+			$record->setFetchMode(PDO::FETCH_OBJ);
+			
+			return json_encode($record->fetchAll());
+		}			
 	}
 ?>

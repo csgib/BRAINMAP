@@ -124,8 +124,8 @@ function boucle_grab()
 
 function grab_display_step_2(w,h)
 {
-	w = parseInt(w) + 50;
-	h = parseInt(h) + 50;
+	w = parseInt(w) + 100;
+	h = parseInt(h) + 100;
 	var extra_canvas = document.createElement("canvas");
 	extra_canvas.setAttribute('width',w);
 	extra_canvas.setAttribute('height',h);
@@ -167,8 +167,8 @@ function dowload_grab_pdf()
 
 function dowload_grab_pdf_step_2(w,h)
 {
-	w = parseInt(w) + 50;
-	h = parseInt(h) + 50;
+	w = parseInt(w) + 100;
+	h = parseInt(h) + 100;
 	var extra_canvas = document.createElement("canvas");
 	extra_canvas.setAttribute('width',w);
 	extra_canvas.setAttribute('height',h);

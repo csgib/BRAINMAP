@@ -83,7 +83,7 @@
 		
 		public function get_maxpos_nas()
 		{		
-			$record=$this->connexion->query("SELECT MAX(NAS_POS_X),MAX(NAS_POS_Y) FROM NAS WHERE 
+			$record=$this->connexion->query("SELECT MAX(NAS_POS_X) AS X,MAX(NAS_POS_Y) AS Y FROM NAS WHERE 
 				NAS_SITE='" . $this->_site . "'");
 			$record->setFetchMode(PDO::FETCH_OBJ);
 			

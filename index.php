@@ -449,6 +449,15 @@ function filter_sites()
 	$.ajax({
 		url: "filter_site.php?NAME=" + $("#FILTER_NAME").val(),
 		success: function(response) {
+			if ( response.length < 2)
+			{
+				$("#BT_TOP_M_2").hide();
+			}
+			else
+			{
+				$("#BT_TOP_M_2").show();
+			}
+
 			response = response.replace(/^\s+/g,'').replace(/\s+$/g,'');
 			$("#MAP_LISTE_UL").html(response);
 			resize_index();
