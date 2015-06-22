@@ -12,7 +12,7 @@
 		require "Class/class_zones.php";
 		require "Class/class_transcievers.php";
 		require "Class/class_textes.php";
-
+		
 		$hdl_baie = new Baie();
 		$hdl_lien = new Lien();
 		$hdl_nas = new Nas();
@@ -54,6 +54,8 @@
 		$hdl_texte->delete_textes_for_site();
 		
 		$result = $hdl_site->delete_site();
+		
+		unlink('Snaps/' . $_GET['ID'] . '.png');
 
 		$result_site = json_decode($hdl_site->get_all_sites());
 

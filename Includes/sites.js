@@ -39,12 +39,12 @@ function valide_delete_site(id)
 				});
 			}
 		},
-	        error: function(){
-			$.gritter.add({
-				title: 'Suppression site',
-				text: 'Erreur lors de la suppression du site dans la base de données.',
-				time: 1500
-			});
+	        error: function(response){
+				$.gritter.add({
+					title: 'Suppression site',
+					text: 'Erreur lors de la suppression du site dans la base de données.',
+					time: 1500
+				});
     		}
 	});
 }
