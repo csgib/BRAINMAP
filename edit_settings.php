@@ -157,7 +157,6 @@ function valide_formulaire_settings()
 
 function valide_formulaire_settings_step_2(lat, lng)
 {
-	alert(lat + " " + lng);
 	var regtxt2 = new RegExp("\"|\'");
 	var errors = 0;
 

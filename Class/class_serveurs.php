@@ -40,6 +40,7 @@
 		public $_release;
 		public $_ondulee;
 		public $_firewall;
+		public $_glpi_id;
 
 		// *** METHODES ET CONSTRUCTEUR ***
 		public function __construct()
@@ -49,7 +50,7 @@
 		}
 		public function insert_serveur()
 		{
-			$result = $this->connexion->exec("INSERT INTO SERVEURS(SERVEURS_SITE,SERVEURS_NAME,SERVEURS_POS_X,SERVEURS_POS_Y,SERVEURS_MARQUE,SERVEURS_MODELE,SERVEURS_LAN_1_ON,SERVEURS_LAN_1_TYPE,SERVEURS_LAN_1_IP,SERVEURS_LAN_2_ON, SERVEURS_LAN_2_TYPE,SERVEURS_LAN_2_IP,SERVEURS_LAN_3_ON,SERVEURS_LAN_3_TYPE,SERVEURS_LAN_3_IP,SERVEURS_LAN_4_ON,SERVEURS_LAN_4_TYPE,SERVEURS_LAN_4_IP, SERVEURS_LAN_5_ON,SERVEURS_LAN_5_TYPE,SERVEURS_LAN_5_IP,SERVEURS_LAN_6_ON,SERVEURS_LAN_6_TYPE,SERVEURS_LAN_6_IP, SERVEURS_WEB_INTERFACE,SERVEURS_WEB_PORT,SERVEURS_HTTPS,SERVEURS_WEB_CARD,SERVEURS_OS,SERVEURS_RELEASE,SERVEURS_ONDULEE,SERVEURS_FIREWALL) 
+			$result = $this->connexion->exec("INSERT INTO SERVEURS(SERVEURS_SITE,SERVEURS_NAME,SERVEURS_POS_X,SERVEURS_POS_Y,SERVEURS_MARQUE,SERVEURS_MODELE,SERVEURS_LAN_1_ON,SERVEURS_LAN_1_TYPE,SERVEURS_LAN_1_IP,SERVEURS_LAN_2_ON, SERVEURS_LAN_2_TYPE,SERVEURS_LAN_2_IP,SERVEURS_LAN_3_ON,SERVEURS_LAN_3_TYPE,SERVEURS_LAN_3_IP,SERVEURS_LAN_4_ON,SERVEURS_LAN_4_TYPE,SERVEURS_LAN_4_IP, SERVEURS_LAN_5_ON,SERVEURS_LAN_5_TYPE,SERVEURS_LAN_5_IP,SERVEURS_LAN_6_ON,SERVEURS_LAN_6_TYPE,SERVEURS_LAN_6_IP, SERVEURS_WEB_INTERFACE,SERVEURS_WEB_PORT,SERVEURS_HTTPS,SERVEURS_WEB_CARD,SERVEURS_OS,SERVEURS_RELEASE,SERVEURS_ONDULEE,SERVEURS_FIREWALL,SERVEURS_GLPI_ID) 
 				VALUES('" . addslashes($this->_site) . "' , '"
 					 . addslashes($this->_name) . "' , '"
 					 . $this->_pos_x . "' , '"
@@ -81,7 +82,8 @@
 					 . addslashes($this->_os) . "' , '"
 					 . addslashes($this->_release) . "' , '"
 					 . $this->_ondulee . "' , '"
-					 . $this->_firewall . "')");				
+					 . $this->_firewall . "' , '"
+					 . $this->_glpi_id . "')");				
 
 			return $this->connexion->lastInsertId();
 		}
@@ -144,7 +146,8 @@
 					SERVEURS_OS='" . $this->_os . "',
 					SERVEURS_RELEASE='" . addslashes($this->_release) . "',
 					SERVEURS_ONDULEE='" . $this->_ondulee . "',
-					SERVEURS_FIREWALL='" . $this->_firewall . "'					
+					SERVEURS_FIREWALL='" . $this->_firewall . "',
+					SERVEURS_GLPI_ID='" . $this->_glpi_id . "'
 
 					where SERVEURS_ID=" . $this->_id . " AND SERVEURS_SITE='" . addslashes($this->_site) . "'" );
 			return $result;		

@@ -218,7 +218,7 @@ echo "<div class='CONTENT_SUB'>";
 			$j = 0;
 			while ( $j < count($result_baie) )
 			{
-				echo "<optgroup label=" . $result_baie[$j]->BAIES_COMMENTAIRES . ">";
+				echo "<optgroup label='" . str_replace( "'", " ",$result_baie[$j]->BAIES_COMMENTAIRES ) . "'>";
 
 				$hdl_switche->_baie_id = $result_baie[$j]->BAIES_ID;
 				

@@ -171,7 +171,7 @@ function load_ports(id, ports)
 			$j = 0;
 			while ( $j < count($result_baie) )
 			{
-				$var_co_obj .=  "<optgroup label=" . $result_baie[$j]->BAIES_COMMENTAIRES . ">";
+				$var_co_obj .= "<optgroup label='" . str_replace( "'", " ",$result_baie[$j]->BAIES_COMMENTAIRES ) . "'>";
 	
 				$hdl_switche->_baie_id = $result_baie[$j]->BAIES_ID;
 			

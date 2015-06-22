@@ -121,6 +121,8 @@
 		$hdl_serveur->_lan_6_ip = $_POST['FRM_SERVEUR_IP_5'];
 
 		$hdl_serveur->_web_card = $_POST['FRM_SERVEUR_WEB_CARD'];
+		
+		$hdl_serveur->_glpi_id = $_POST['FRM_SERVEUR_GLPI_ID'];
 
 		if ( $_POST['ISNEW'] == "1" )
 		{

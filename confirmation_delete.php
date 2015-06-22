@@ -110,8 +110,6 @@
 
 	?>
 
-<div id="DELETE_WARNING"></div>
-
 <script type="text/javascript">
 
 $('#SITE').val(sessionStorage.getItem("SITKEY"));

@@ -3,7 +3,7 @@
 <h2 class="TITLE_N0 TITLE_BLUE TITLE_CENTER_IT TITLE_BORDER_IT">Serveur</h2>
 
 <form method="post" action="insert_serveur.php" id="FORMULAIRE" onsubmit="return false">
-	<table>	
+	<table id="DETAIL_SERVER">	
 		<tr><td class="rubrique">Nom du serveur</td><td class="fields"><input type="text" name="FRM_SERVEUR_NAME" id="FRM_SERVEUR_NAME" placeholder="Nom du serveur" class="requis wid_1"></td></tr>
 		<tr><td class="rubrique">Marque du serveur</td><td class="fields"><select name='FRM_SERVEUR_MARQUE' id='FRM_SERVEUR_MARQUE' class="wid_1">
 		
@@ -57,7 +57,9 @@
 				<option value='5'>5</option>
 				<option value='6'>6</option>
 		</select></td></tr>
-
+		<tr><td class="rubrique">GLPI ID</td><td class="fields">
+			<input type="text" id="FRM_SERVEUR_GLPI_ID" name="FRM_SERVEUR_GLPI_ID" placeholder="ID GLPI du serveur" class="wid_1">
+		</td></tr>
 		<tr><td class="rubrique">Cartes réseau</td><td class="fields">
 		<?php
 
@@ -90,6 +92,7 @@
 		?>
 		</td></tr>
 	</table>
+	
 	<?php
 
 		echo "<input type='hidden' name='SITE' id='SITE' value='" . $_GET['SITE'] . "'>";
@@ -120,7 +123,8 @@
 					$('#FRM_SERVEUR_OS').val('" . addslashes($result[0]->SERVEURS_OS) . "');
 					$('#FRM_SERVEUR_RELEASE').val('" . addslashes($result[0]->SERVEURS_RELEASE) . "');
 					$('#FRM_SERVEUR_WEB_CARD').val('" . $result[0]->SERVEURS_WEB_CARD . "');
-					$('#FRM_SERVEUR_WEB_PORT').val('" . $result[0]->SERVEURS_WEB_PORT . "');";
+					$('#FRM_SERVEUR_WEB_PORT').val('" . $result[0]->SERVEURS_WEB_PORT . "');
+					$('#FRM_SERVEUR_GLPI_ID').val('" . $result[0]->SERVEURS_GLPI_ID . "');";
 
 					if ( $result[0]->SERVEURS_ONDULEE == "1" )
 					{
@@ -272,7 +276,7 @@
 		$j = 0;
 		while ( $j < count($result_baie) )
 		{
-			echo "<optgroup label=" . $result_baie[$j]->BAIES_COMMENTAIRES . ">";
+			echo "<optgroup label='" . str_replace( "'", " ",$result_baie[$j]->BAIES_COMMENTAIRES ) . "'>";
 
 			$hdl_switche->_baie_id = $result_baie[$j]->BAIES_ID;
 		
@@ -675,7 +679,20 @@ function valide_formulaire_link_card()
 			});
 			return false;
     		}
-	});
+	});	
+}
+
+// *** RETRIEVE GLPI INFO ***
+
+if ( $("#FRM_SERVEUR_GLPI_ID").val() != "" )
+{
+	$.ajax({
+		type: 'GET',
+		url: "request_glpi.php?METHOD=glpi.getObject&ITEMTYPE=Computer&ID=" + $("#FRM_SERVEUR_GLPI_ID").val(),
+		success: function(response) {
+			$("#DETAIL_SERVER").append(response);
+		}
+	});	
 }
 
 </script>

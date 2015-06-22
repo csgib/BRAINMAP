@@ -1189,18 +1189,6 @@ select:focus{
 	font-size:				12px;
 }
 
-#DELETE_WARNING{
-	position:				absolute;
-	width:					256px;
-	height:					256px;
-	bottom:					90px;
-	right:					40px;
-	padding:				0px;
-	margin:					0px;
-	background-image: 			url('../Images/warning.png');
-	background-repeat: 			no-repeat;
-}
-
 /* *********************** */
 /* *** MENU CONTEXTUEL *** */
 /* *********************** */
