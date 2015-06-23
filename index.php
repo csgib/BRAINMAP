@@ -7,7 +7,7 @@
 	
 <title>BRAINMAP - Schémas réseaux</title>
 <meta charset="UTF8"></meta>
-<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
 <meta name="viewport" content="width=device-width, height=device-height">
 
 <script src="Plugins/jquery.js" type="text/javascript"></script>
@@ -17,6 +17,27 @@
 <script src="Plugins/jquery.farbtastic.js" type="text/javascript"></script>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 <script src="Plugins/gmap3-master/dist/gmap3.min.js" type="text/javascript"></script>
+
+<script src="Includes/baies.js" type="text/javascript"></script>
+<script src="Includes/benchs.js" type="text/javascript"></script>
+<script src="Includes/switchs.js" type="text/javascript"></script>
+<script src="Includes/serveurs.js" type="text/javascript"></script>
+<script src="Includes/routeurs.js" type="text/javascript"></script>
+<script src="Includes/nas.js" type="text/javascript"></script>
+<script src="Includes/modals.js" type="text/javascript"></script>
+<script src="Includes/draw.js" type="text/javascript"></script>
+<script src="Includes/settings.js" type="text/javascript"></script>
+<script src="Includes/sites.js" type="text/javascript"></script>
+<script src="Includes/zones.js" type="text/javascript"></script>
+<script src="Includes/cameras.js" type="text/javascript"></script>
+<script src="Includes/antennes.js" type="text/javascript"></script>
+<script src="Includes/transceiver.js" type="text/javascript"></script>
+<script src="Includes/textes.js" type="text/javascript"></script>
+<script src="Includes/help.js" type="text/javascript"></script>
+<script src="Includes/grab.js" type="text/javascript"></script>
+<script src="Includes/popupinfo.js" type="text/javascript"></script>
+<script src="Plugins/upload.js" type="text/javascript"></script>
+<script src="Plugins/html2canvas.js" type="text/javascript"></script>
 <!-- INCLUDE DES FEUILLES DE STYLE -->
 
 <link rel="stylesheet" type="text/css" href="Css/jquery-ui.css" media="screen">

@@ -1,24 +1,3 @@
-<script src="Includes/baies.js" type="text/javascript"></script>
-<script src="Includes/benchs.js" type="text/javascript"></script>
-<script src="Includes/switchs.js" type="text/javascript"></script>
-<script src="Includes/serveurs.js" type="text/javascript"></script>
-<script src="Includes/routeurs.js" type="text/javascript"></script>
-<script src="Includes/nas.js" type="text/javascript"></script>
-<script src="Includes/modals.js" type="text/javascript"></script>
-<script src="Includes/draw.js" type="text/javascript"></script>
-<script src="Includes/settings.js" type="text/javascript"></script>
-<script src="Includes/sites.js" type="text/javascript"></script>
-<script src="Includes/zones.js" type="text/javascript"></script>
-<script src="Includes/cameras.js" type="text/javascript"></script>
-<script src="Includes/antennes.js" type="text/javascript"></script>
-<script src="Includes/transceiver.js" type="text/javascript"></script>
-<script src="Includes/textes.js" type="text/javascript"></script>
-<script src="Includes/help.js" type="text/javascript"></script>
-<script src="Includes/grab.js" type="text/javascript"></script>
-<script src="Includes/popupinfo.js" type="text/javascript"></script>
-<script src="Plugins/upload.js" type="text/javascript"></script>
-<script src="Plugins/html2canvas.js" type="text/javascript"></script>
-
 <?php
 
        @session_start();
