@@ -4,7 +4,7 @@
 	if ( count(trim($result)) < 5 )
 	{
 		$wl_loop = 0;
-		while ($wl_loop < 2)
+		while ($wl_loop < 2 && count(trim($result)) < 5 )
 		{
 			$result = shell_exec('sleep 1 && ping -c 1 -n -t 55 -v -w 1 ' . $_GET['IP'] . ' | grep ttl=');
 			$wl_loop++;

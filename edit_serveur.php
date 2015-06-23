@@ -69,7 +69,7 @@
 		}
 		else
 		{
-			$wl_edit_yes = "style='display: none;'";
+			$wl_edit_yes = "disabled=\"disabled\"";
 		}
 
 		$i = 0;
@@ -77,11 +77,11 @@
 		{
 			$type = "<div class='LAN_CARD'><table style='width: 100%;'><tr>
 					<td style='width: 40px;'><input id='FRM_SERVEUR_NET" . $i . "_OK' name='FRM_SERVEUR_NET" . $i . "_OK' type='checkbox' class='chk_style'></td>
-					<td style='width: 100px;'><select name='FRM_SERVEUR_LAN_TYPE_" . $i . "' id='FRM_SERVEUR_LAN_TYPE_" . $i . "'>
+					<td><select class='wid_2' name='FRM_SERVEUR_LAN_TYPE_" . $i . "' id='FRM_SERVEUR_LAN_TYPE_" . $i . "'>
 						<option value='0'>Ethernet</option>
 						<option value='1'>Fibre optique</option>
 					</select></td>
-					<td style='width: 60px;'><input type='text' name='FRM_SERVEUR_IP_" . $i . "' id='FRM_SERVEUR_IP_" . $i . "' placeholder='Adresse IP' maxlength='15' size='19' class='ip TITLE_CENTER_IT'>
+					<td><input class='wid_2' type='text' name='FRM_SERVEUR_IP_" . $i . "' id='FRM_SERVEUR_IP_" . $i . "' placeholder='Adresse IP' maxlength='15' size='19' class='ip TITLE_CENTER_IT'>
 					<button class='main_bt' style='margin-top: 4px;' onclick='javascript:open_edit_link_card(" . ($i+1) . ")' " . $wl_edit_yes . " id='LK_" . $i . "'>Lier la carte</button></td></tr></table>
 				</div>";
 			echo $type;
@@ -156,8 +156,10 @@
 
 					if ( $result[0]->$wl_var_ip == "" )
 					{
-						echo "$('#LK_" . $i ."').remove();";
-						echo "$('#EI_" . $i ."').remove();";
+						/*echo "$('#LK_" . $i ."').remove();";
+						echo "$('#EI_" . $i ."').remove();";*/
+						echo "$('#LK_" . $i ."').attr(\"disabled\",\"disabled\");";	
+						echo "$('#EI_" . $i ."').attr(\"disabled\",\"disabled\");";
 					}
 					else
 					{

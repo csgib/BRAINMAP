@@ -12,7 +12,7 @@ function test_switchs()
 	var nbre_switch_test = 0;
 	$("#LOCK_SCREEN").fadeIn(400);
 	
-	$("#PROGRESS").fadeIn(400, function(){
+	$("#PROGRESS").fadeIn(100, function(){
 		hide_contextual();
 		var total_switch = parseInt($(".SWITCH").length) + parseInt($(".ANTENNE_SUPPORT").length); 
 
@@ -36,7 +36,6 @@ function test_switchs()
 				type:"GET",
 				url:"testip.php?IP=" + ip_ping,
 				success: function(retour){
-					
 					var explode_return = retour.split("/_/");
 					
 					nbre_switch_test++;
@@ -110,8 +109,8 @@ function test_switchs()
 
 					if ( nbre_switch_test == total_switch )
 					{
-						$("#LOCK_SCREEN").fadeOut(800);
-						$("#PROGRESS").fadeOut(800);
+						$("#LOCK_SCREEN").fadeOut(400);
+						$("#PROGRESS").fadeOut(400);
 						$("#LOCK_GRAPH").fadeIn(400);
 					}
 				}
@@ -122,7 +121,7 @@ function test_switchs()
 
 function test_time(ip)
 {
-	$("#BALL_DIV").fadeIn(400);
+	$("#BALL_DIV").fadeIn(300);
 	hide_contextual();
 
 	$.ajax({
